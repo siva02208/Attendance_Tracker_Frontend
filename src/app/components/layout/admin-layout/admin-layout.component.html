@@ -1,0 +1,46 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky">
+        <!-- Sidebar Heading -->
+        <h4 class="sidebar-heading">Dashboard</h4>
+
+        <!-- Sidebar Navigation -->
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/adminDashboard/post']">
+              <i class="bi bi-person"></i> Add Student
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/adminDashboard/staffmanage']">
+              <i class="bi bi-person"></i> Staff
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/adminDashboard/coursemanage']">
+              <i class="bi bi-person"></i> Add Courses
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/adminDashboard/regstudent']">
+              <i class="bi bi-person"></i> Students
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/adminDashboard/code']">
+              <i class="bi bi-person"></i> Notify Problem
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+.bus-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    background-color: #fff;
+    margin: 10px;
+  }
+  
+  .bus-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.4);
+  }
+  
+  .bus-card img {
+    width: 30%;
+    border-radius: 10px;
+  }
+  
+  .bus-card h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+  }
+  
+  .bus-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .bus-rating-stars {
+    font-size: 1.5rem;
+    color: #fdd835;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  
+  .bus-rating-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 5px;
+    color: #555;
+  }

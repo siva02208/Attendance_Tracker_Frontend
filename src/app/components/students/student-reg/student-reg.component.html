@@ -1,0 +1,39 @@
+<h3 class="text-center my-5 items_title">Registered Students</h3>
+
+<div class="container">
+    <div class="card items_card">
+        <div class="card-body">
+
+
+    <table class="table table-striped text-center">
+        <tr>
+            <th>StudentId</th>
+            <th>Student Name</th>
+            <th>Gender</th>
+            <th>Branch</th>
+            <th>Email</th>
+
+        </tr>
+        <tr *ngFor="let Student of Student">
+            <td>{{Student.studentId}}</td>
+            <td>{{Student.name}}</td>
+            <td>{{Student.gender}}</td>
+            <td>{{Student.branch}}</td>
+            <td>{{Student.email}}</td>
+
+
+
+            <td>
+
+
+                <a href="#" [routerLink]="['/calendar/',Student.studentId,'view']" class="btn action btn-info">View</a>
+
+
+            </td>
+        </tr>
+    </table>
+
+</div>
+</div>
+</div>
+

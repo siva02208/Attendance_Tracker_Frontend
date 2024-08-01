@@ -1,0 +1,62 @@
+<h3 class="text-center my-5 items_title">Registered Staff</h3>
+
+<div class="container">
+  <div class="card items_card">
+    <div class="card-body">
+      <div [formGroup]="staffForm">
+      <table class="table table-striped text-center">
+        <tr>
+          <th>staffId</th>
+          <th>staffName</th>
+          <th>mobileNumber</th>
+          <th>gender</th>
+          <th>email</th>
+          <th>Course Assigned</th>
+        </tr>
+        <tr *ngFor="let Staff of Staff">
+          <td>{{ Staff.staffId }}</td>
+          <td>{{ Staff.staffName }}</td>
+          <td>{{ Staff.mobileNumber }}</td>
+          <td>{{ Staff.gender }}</td>
+          <td>{{ Staff.email }}</td>
+
+          <td>
+            <div class="form-group">
+              <ng-multiselect-dropdown
+                [formControlName]="'courseId'"
+                [placeholder]="'Select Courses'"
+                [(ngModel)]="selectedItems"
+                [settings]="dropdownSettings"
+                [data]="dropdownList"
+                (onSelect)="addStaffCourse($event, Staff)"
+                (onDeSelect)="deleteCourseFromTeacher($event, Staff)"
+                (onSelectAll)="assignCoursestoTeachers($event, Staff)"
+                (onDeSelectAll)="deleteStaffCourse(Staff)"
+              >
+              </ng-multiselect-dropdown>
+            </div>
+            <!-- <div class="assigned-courses">
+              <strong>Assigned Courses:</strong>
+              <ul>
+              </ul>
+            </div> -->
+          </td>
+
+
+          <td>
+            <button
+              type="button"
+              (click)="deleteStaff(Staff.staffId)"
+              class="btn action-btn btn-danger"
+              [disabled]="isStaffInPosts(Staff.staffId)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+

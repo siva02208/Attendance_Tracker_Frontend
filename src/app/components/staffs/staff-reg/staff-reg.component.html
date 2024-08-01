@@ -1,0 +1,37 @@
+<h3 class="text-center my-5 items_title">Registered Staff</h3>
+
+<div class="container">
+    <div class="card items_card">
+        <div class="card-body">
+
+
+    <table class="table table-striped text-center">
+        <tr>
+            <th>staffId</th>
+            <th>staffName</th>
+            <th>mobileNumber</th>
+            <th>gender</th>
+            <th>email</th>
+        </tr>
+        <tr *ngFor="let Staff of Staff">
+            <td>{{Staff.staffId}}</td>
+            <td>{{Staff.staffName}}</td>
+            <td>{{Staff.mobileNumber}}</td>
+            <td>{{Staff.gender}}</td>
+            <td>{{Staff.email}}</td>
+            <td>
+              <button
+              type="button"
+              class="btn action btn-info"
+              (click)="viewDetails()"
+            >
+              View Details
+            </button>
+                        </td>
+        </tr>
+    </table>
+
+</div>
+</div>
+</div>
+

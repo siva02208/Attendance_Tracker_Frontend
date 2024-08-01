@@ -1,0 +1,33 @@
+<h3 class="text-center my-5 items_title">Leave Info</h3>
+
+<div class="container">
+  <div class="card items_card">
+    <div class="card-body">
+      <table class="table table-striped text-center">
+        <tr>
+          <th>Leave ID</th>
+          <th>Student ID</th>
+          <th>Leave Description</th>
+          <th>From Date</th>
+          <th>To Date</th>
+          <th>Leave Status</th>
+        </tr>
+        <tr *ngFor="let Student of leaves">
+          <td>{{ Student.id }}</td>
+          <td>{{Student.studentId}}</td>
+          <td>{{ Student.leaveDescription }}</td>
+          <td>{{ Student.fromDate }}</td>
+          <td>{{ Student.toDate }}</td>
+          <td>
+            <select class="form-control" [(ngModel)]="Student.leaveStatus" (change)="updateLeaveStatus(Student)">
+              <option [value]="'Pending'" [selected]="Student.leaveStatus === 'Pending'">Pending</option>
+              <option [value]="'Approved'" [selected]="Student.leaveStatus === 'Approved'">Approved</option>
+              <option [value]="'Rejected'" [selected]="Student.leaveStatus === 'Rejected'">Rejected</option>
+            </select>
+          </td>
+
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

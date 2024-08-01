@@ -1,0 +1,63 @@
+<h1 class="text-center my-5 admin_dashboard_title">Welcome Staff</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card admin_dashboard_card">
+                <a [routerLink]="['/adminDashboard/post']" class="post_link">
+                <div class="card-body card-shape">
+                    <img src="../../assets/img/Attendance.jpg" width="400" height="300" class="admin_dashboard_img" alt="">
+                    <h5 class="text-center my-3">Add Student</h5>
+                    <p class="text-muted text-center">Here you can add,delete,edit,view the studentdetails</p>
+                </div>
+                </a>
+              </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card customer_dashboard_card">
+             <a [routerLink]="['/adminDashboard/staffmanage']" class="view_buses_link">
+              <div class="card-body card-shape">
+                  <img src="../../assets/img/Staff.png" width="400" height="300" class="customer_dashboard_img" alt="">
+                  <h5 class="text-center my-3">staff</h5>
+                  <p class="text-muted text-center">staff details</p>
+              </div>
+              </a>
+            </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card customer_dashboard_card">
+           <a [routerLink]="['/adminDashboard/coursemanage']" class="view_buses_link">
+            <div class="card-body card-shape">
+                <img src="../../assets/img/Staff.png" width="400" height="300" class="customer_dashboard_img" alt="">
+                <h5 class="text-center my-3">Add Courses</h5>
+                <p class="text-muted text-center">Here you can add,delete,edit,view the Courses</p>
+            </div>
+            </a>
+          </div>
+    </div>
+        <div class="col-md-4">
+            <div class="card admin_dashboard_card">
+                <a [routerLink]="['/adminDashboard/regstudent']" class="regbuses_link">
+                <div class="card-body card-shape">
+                    <img src="../../assets/img/Student.png" width="400" height="300" class="customer_dashboard_img" alt="">
+                    <h5 class="text-center my-3">Students</h5>
+                    <p class="text-muted text-center">Here you can see student details</p>
+                </div>
+                </a>
+              </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card admin_dashboard_card">
+                <a [routerLink]="['/adminDashboard/code']" class="code_link">
+                <div class="card-body card-shape">
+                    <img src="../../assets/img/School.png" width="400" height="300" class="customer_dashboard_img" alt="">
+                    <h5 class="text-center my-3">notify problem</h5>
+                    <p class="text-muted text-center">Here you say any issue with website especially for staff</p>
+                </div>
+                </a>
+              </div>
+        </div>
+
+    </div>
+</div>

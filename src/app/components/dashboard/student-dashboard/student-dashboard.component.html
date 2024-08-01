@@ -1,0 +1,90 @@
+
+      <!-- Your content blocks go here -->
+      <h1 class="text-center my-5 customer_dashboard_title">
+        Welcome, Have a nice Day
+      </h1>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card customer_dashboard_card">
+            <a
+              [routerLink]="['/StudentsDashboard/post/', this.studentId, 'view']"
+              class="reg_buses_link"
+            >
+              <div class="card-body card-shape">
+                <img
+                  src="../../assets/img/Student.png"
+                  width="400"
+                  height="300"
+                  class="customer_dashboard_img"
+                  alt=""
+                />
+                <h5 class="text-center my-3">student information</h5>
+                <p class="text-muted text-center">
+                  here you can see student deatils
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card admin_dashboard_card">
+            <a
+              [routerLink]="['/StudentsDashboard/post/', this.studentId, 'edit']"
+              class="reg_buses_link"
+            >
+              <div class="card-body card-shape">
+                <img
+                  src="../../assets/img/Attendance.jpg"
+                  width="400"
+                  height="300"
+                  class="admin_dashboard_img"
+                  alt=""
+                />
+                <h5 class="text-center my-3">Edit Your Details</h5>
+                <p class="text-muted text-center">
+                  Here you can edit and view the studentdetails
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card customer_dashboard_card">
+            <a [routerLink]="['/StudentsDashboard/studentleave']" class="profile_link">
+              <div class="card-body card-shape">
+                <img
+                  src="../../assets/img/School.png"
+                  width="400"
+                  height="300"
+                  class="customer_dashboard_img"
+                  alt=""
+                />
+                <h5 class="text-center my-3">Leave Submission</h5>
+                <p class="text-muted text-center">
+                  You can apply for a leave or check the leave status
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card customer_dashboard_card">
+            <a [routerLink]="['/StudentsDashboard/profile']" class="profile_link">
+              <div class="card-body card-shape">
+                <img
+                  src="../../assets/img/School.png"
+                  width="400"
+                  height="300"
+                  class="customer_dashboard_img"
+                  alt=""
+                />
+                <h5 class="text-center my-3">school environment</h5>
+                <p class="text-muted text-center">features of school</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>

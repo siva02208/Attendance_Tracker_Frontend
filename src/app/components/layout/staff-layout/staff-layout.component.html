@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+      <div class="position-sticky">
+        <!-- Sidebar Heading -->
+        <h4 class="sidebar-heading" [routerLink]="['/StaffsDashboard']" > Staff Dashboard</h4>
+
+        <!-- Sidebar Navigation -->
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/StaffsDashboard/tcview']">
+              <i class="bi bi-person"></i> Staff
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/StaffsDashboard/regstudent']">
+              <i class="bi bi-person"></i> Student Information
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/StaffsDashboard/studentcourse']">
+              <i class="bi bi-person"></i> Assign Student Course
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"  [routerLink]="['/StaffsDashboard/leave-submission']">
+              <i class="bi bi-person"></i> Leave Submission
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['StaffsDashboard/attendence']">
+              <i class="bi bi-person"></i> Attendence
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/StaffsDashboard/profile']" >
+              <i class="bi bi-building"></i> School Environment
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+     <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

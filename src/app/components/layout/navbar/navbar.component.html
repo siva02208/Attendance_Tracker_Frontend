@@ -1,0 +1,19 @@
+<nav class="navbar navbar-dark navbar-expand-md bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="">Login Demo</a>
+    <button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler">
+      <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navcol-1">
+      <ul class="nav navbar-nav">
+        <li *ngIf="!IsLoggedIn" class="nav-item"><a class="nav-link active" routerLink="/login">Login</a></li>
+        <li *ngIf="!IsLoggedIn" class="nav-item"><a class="nav-link active" routerLink="/signup">Signup</a></li>
+        <li *ngIf="!IsLoggedIn" class="nav-item"><a class="nav-link active" routerLink="/about">About</a></li>
+        <li *ngIf="!IsLoggedIn" class="nav-item"><a class="nav-link active" routerLink="/ContactUs">Contact Us</a></li>
+        <li *ngIf="IsLoggedIn" class="nav-item"><a class="nav-link active" (click)="goBack()">Go Back</a></li>
+        <li class="nav-item logout"><a class="nav-link active" (click)="Logout()">Logout</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,103 @@
+<div class="container">
+  <h1>Apply For Leave</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="TeacherName">Teacher Name:</label>
+      <select
+        formControlName="TeacherName"
+        id="TeacherName"
+        class="form-control"
+      >
+        <option *ngFor="let teacher of teachers" [value]="teacher.staffId">
+          {{ teacher.staffName }}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="FromDate">From Date:</label>
+      <input
+        formControlName="FromDate"
+        id="FromDate"
+        type="date"
+        class="form-control"
+      />
+    </div>
+    <div
+      *ngIf="form.get('FromDate')?.invalid && form.get('FromDate')?.touched"
+      class="error-message"
+    >
+      <div
+        *ngIf="form.get('FromDate')?.hasError('required')"
+        class="error-message"
+      >
+        From Date is required.
+      </div>
+      <div
+        *ngIf="form.get('FromDate')?.hasError('minDate')"
+        class="error-message"
+      >
+        From Date cannot be earlier than the current date.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="ToDate">To Date:</label>
+      <input
+        formControlName="ToDate"
+        id="ToDate"
+        type="date"
+        class="form-control"
+      />
+    </div>
+
+    <div
+      *ngIf="form.get('ToDate')?.invalid && form.get('ToDate')?.touched"
+      class="error-message"
+    >
+      <div
+        *ngIf="form?.get('ToDate')?.hasError('required')"
+        class="error-message"
+      >
+        To Date is required.
+      </div>
+      <div
+        *ngIf="form?.get('ToDate')?.hasError('toDateInvalid')"
+        class="error-message"
+      >
+        To Date cannot be the same as or earlier than From Date.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="LeaveDescription">Leave Description:</label>
+      <textarea
+        formControlName="LeaveDescription"
+        id="LeaveDescription"
+        class="form-control"
+        rows="4"
+      ></textarea>
+      <div
+        *ngIf="f?.LeaveDescription?.touched && f?.LeaveDescription?.invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="
+            f['LeaveDescription'].errors &&
+            f['LeaveDescription'].errors['required']
+          "
+        >
+          Leave Description is required.
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <button class="btn btn-primary" type="sumit" [disabled]="!form.valid">
+      Submit
+    </button>
+  </form>
+</div>

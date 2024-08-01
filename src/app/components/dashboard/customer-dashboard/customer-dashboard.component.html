@@ -1,0 +1,79 @@
+<h1 class="text-center my-5 customer_dashboard_title">Welcome, Have a nice Day</h1>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card customer_dashboard_card">
+               <a [routerLink]="['/StaffsDashboard/tcview']" class="view_buses_link">
+                <div class="card-body card-shape">
+                    <img src="../../assets/img/Staff.png" width="400" height="300" class="customer_dashboard_img" alt="">
+                    <h5 class="text-center my-3">staff</h5>
+                    <p class="text-muted text-center">staff details</p>
+                </div>
+                </a>
+              </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card customer_dashboard_card">
+
+                <a [routerLink]="['/StaffsDashboard/regstudent']" class="reg_buses_link">
+                <div class="card-body card-shape">
+                    <img src="../../assets/img/Student.png" width="400" height="300" class="customer_dashboard_img" alt="">
+                    <h5 class="text-center my-3">student information</h5>
+                    <p class="text-muted text-center">here you can see student deatils</p>
+                </div>
+                </a>
+              </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="card customer_dashboard_card">
+
+              <a [routerLink]="['/StaffsDashboard/studentcourse']" class="reg_buses_link">
+              <div class="card-body card-shape">
+                  <img src="../../assets/img/Student.png" width="400" height="300" class="customer_dashboard_img" alt="">
+                  <h5 class="text-center my-3">Assign student Course</h5>
+                  <p class="text-muted text-center">here you can see student deatils</p>
+              </div>
+              </a>
+            </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card customer_dashboard_card">
+            <a [routerLink]="['/StaffsDashboard/leave-submission']" class="profile_link">
+            <div class="card-body card-shape">
+                <img src="../../assets/img/School.png" width="400" height="300" class="customer_dashboard_img" alt="">
+                <h5 class="text-center my-3">Leave Submission</h5>
+                <p class="text-muted text-center">You can apply for a leave or check  the leave status</p>
+            </div>
+            </a>
+          </div>
+    </div>
+
+
+        <div class="col-md-4">
+          <div class="card customer_dashboard_card">
+
+              <a [routerLink]="['/StaffsDashboard/attendence']" class="reg_buses_link">
+              <div class="card-body card-shape">
+                  <img src="../../assets/img/Student.png" width="400" height="300" class="customer_dashboard_img" alt="">
+                  <h5 class="text-center my-3">Attendence</h5>
+                  <p class="text-muted text-center">here you can mark attendences for student</p>
+              </div>
+              </a>
+            </div>
+      </div>
+
+        <div class="col-md-4">
+            <div class="card customer_dashboard_card">
+                <a [routerLink]="['/StaffsDashboard/profile']" class="profile_link">
+                <div class="card-body card-shape">
+                    <img src="../../assets/img/School.png" width="400" height="300" class="customer_dashboard_img" alt="">
+                    <h5 class="text-center my-3">school environment</h5>
+                    <p class="text-muted text-center">features of school</p>
+                </div>
+                </a>
+              </div>
+        </div>
+    </div>
+</div>

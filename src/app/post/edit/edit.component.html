@@ -1,0 +1,95 @@
+<div class="container">
+    <h1>Edit Student Details</h1>
+
+    <a  (click)="goBack()" class="btn btn-primary">Back</a>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <div class="form-group">
+            <label for="studentId">studentId:</label>
+            <input
+                formControlName="studentId"
+                id="studentId"
+                type="text"
+                [(ngModel)]="post.studentId"
+                class="form-control"
+                readonly/>
+        </div>
+
+
+        <div class="form-group">
+            <label for="name">Student Name</label>
+            <input
+                formControlName="name"
+                id="name"
+                type="name"
+                [(ngModel)]="post.name"
+                class="form-control" />
+            <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+                <div *ngIf="f['name'].errors && f['name'].errors['required']">Student Name is required.</div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="branch">Branch:</label>
+          <select
+          formControlName="branch"
+          id="branch"
+          class="form-control">
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+            <option value="CE">CE</option>
+            <option value="ME">ME</option>
+          </select>
+
+          <div *ngIf="f['branch'].touched && f['branch'].invalid" class="alert alert-danger">
+              <div *ngIf="f['branch'].errors && f['branch'].errors['required']">Branch is required.</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+          <select
+          formControlName="gender"
+          id="gender"
+          class="form-control">
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+          </select>
+
+        <div *ngIf="f['gender'].touched && f['gender'].invalid" class="alert alert-danger">
+            <div *ngIf="f['gender'].errors && f['gender'].errors['required']">Gender is required.</div>
+        </div>
+    </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+              formControlName="email"
+              id="email"
+              type="email"
+              [(ngModel)]="post.email"
+              class="form-control" />
+          <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+              <div *ngIf="f['email'].errors && f['email'].errors['required']">Email is required.</div>
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+            formControlName="password"
+            id="password"
+            type="password"
+            [(ngModel)]="post.password"
+            class="form-control" />
+        <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+            <div *ngIf="f['password'].errors && f['password'].errors['required']">Password is required.</div>
+        </div>
+    </div>
+
+        <button (click)="goBack()" class="btn btn-primary" type="submit" [disabled]="form.valid">Update</button>
+    </form>
+</div>

@@ -1,0 +1,161 @@
+<div class="register-card">
+  <img class="profile-img-card" src="assets/img/Staff.png" />
+  <p class="profile-name-card"></p>
+  <form [formGroup]="form" (ngSubmit)="submit()" class="form-signup">
+    <span class="reauth-email"></span>
+    <div class="row">
+      <div class="col-md-6 form-group">
+        <input
+          #staffname
+          formControlName="staffname"
+          type="text"
+          class="form-control"
+          id="staffname"
+          required
+          placeholder="Staff Name"
+          autofocus
+        />
+        <div
+          *ngIf="f['staffname'].touched && f['staffname'].invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f['staffname'].errors && f['staffname'].errors['required']">
+            Staffname is required!!
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 form-group">
+        <input
+          #staffname
+          formControlName="mobilenumber"
+          type="number"
+          class="form-control"
+          id="mobilenumber"
+          required
+          placeholder="Mobile Number"
+          autofocus
+        />
+        <div
+          *ngIf="f['mobilenumber'].touched && f['mobilenumber'].invalid"
+          class="alert alert-danger"
+        >
+        <div
+        *ngIf="f['mobilenumber'].touched"
+        class="alert alert-danger"
+      >
+        <div *ngIf="f['mobilenumber'].hasError('required')">
+          Mobile Number is required.
+        </div>
+        <div *ngIf="f['mobilenumber'].hasError('onlyDigits')">
+          Mobile Number must contain only digits.
+        </div>
+        <div *ngIf="f['mobilenumber'].hasError('minlength')">
+          Mobile Number must be exactly 10 digits long.
+        </div>
+        <div *ngIf="f['mobilenumber'].hasError('maxlength')">
+          Mobile Number must be exactly 10 digits long.
+        </div>
+      </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-md-6 form-group">
+        <input
+          #Email
+          formControlName="email"
+          type="email"
+          class="form-control"
+          id="inputEmail"
+          required
+          placeholder="Email address"
+          autofocus
+        />
+        <div
+          *ngIf="f['email'].touched && f['email'].invalid"
+          class="alert alert-danger"
+        >
+        <div *ngIf="f['email'].hasError('required')">
+          Email is required.
+        </div>
+        <div *ngIf="f['email'].hasError('email')">
+          Invalid email format.
+        </div>
+
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+      </div>
+      <div class="col-md-6 form-group">
+        <input
+          #PWD
+          formControlName="password"
+          type="password"
+          class="form-control"
+          id="inputPassword"
+          required
+          placeholder="Password"
+        />
+        <div
+          *ngIf="f['password'].touched && f['password'].invalid"
+          class="alert alert-danger"
+        >
+          <div *ngIf="f['password'].errors && f['password'].errors['required']">
+            Password is required.
+          </div>
+          <div *ngIf="f['password'].hasError('minlength')">
+            Password must be at least 5 characters long.
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 form-group">
+          <select
+            #gender
+            formControlName="gender"
+            class="form-control"
+            id="inputgender"
+            required
+          >
+            <option value="" disabled selected>Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+          <div
+            *ngIf="f['gender'].touched && f['gender'].invalid"
+            class="alert alert-danger"
+          >
+            <div *ngIf="f['gender'].errors && f['gender'].errors['required']">
+              Gender is required.
+            </div>
+          </div>
+        </div>
+
+
+
+
+      <button
+        class="btn btn-primary btn-block btn-lg btn-signup"
+        type="submit"
+
+      >
+        Sign Up
+      </button>
+      <a class="forgot-password" routerLink="/login">Already a User ?</a>
+    </div>
+
+    <!-- <div *ngIf="emailExistsError" class="alert alert-danger">
+      Email already exists. Please use a different email.
+    </div> -->
+
+    <style></style>
+  </form>
+</div>
+  <!-- [disabled]="!form.valid" -->

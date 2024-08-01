@@ -1,0 +1,29 @@
+<h3 class="text-center my-5 items_title">Courses Assigned </h3>
+
+<div class="container">
+    <div class="card items_card">
+        <div class="card-body">
+
+
+    <table class="table table-striped text-center">
+        <tr>
+            <th>CourseId</th>
+            <th>CourseName</th>
+            <th>Course BelongTo Branch</th>
+            <th>Course Description</th>
+
+
+        </tr>
+        <tr *ngFor="let Student of tcourse">
+            <td>{{Student.courseId}}</td>
+            <td>{{Student.courseName}}</td>
+            <td>{{Student.courseBranch}}</td>
+            <td>{{Student.courseDescription}}</td>
+
+        </tr>
+    </table>
+
+</div>
+</div>
+</div>
+

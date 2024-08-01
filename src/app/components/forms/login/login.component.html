@@ -1,0 +1,72 @@
+<div class="login-card">
+  <p class="profile-name-card"></p>
+  <form class="form-signin" [formGroup]="loginForm">
+    <span class="reauth-email"></span>
+    <select
+      #Usertype
+      class="form-control"
+      (change)="onSelected(Usertype.value)"
+    >
+      <option value="Staffs">Staff</option>
+      <option value="Students">Student</option>
+      <option value="Admin">Admin</option>
+    </select>
+    <br />
+    <br />
+
+    <input
+      #Email
+      formControlName="useremail"
+      type="email"
+      class="form-control"
+      id="inputEmail"
+      placeholder="Email address"
+      autofocus
+      required
+    />
+    <small
+    *ngIf="loginForm.get('useremail')?.hasError('required') && loginForm.get('useremail')?.dirty"
+    class="text-danger"
+  >
+    *Email is required
+  </small>
+  <small
+    *ngIf="loginForm.get('useremail')?.hasError('email') && loginForm.get('useremail')?.dirty"
+    class="text-danger"
+  >
+    *Invalid email format
+  </small>
+
+    <input
+      #PWD
+      formControlName="pass"
+      type="password"
+      class="form-control"
+      id="inputPassword"
+      required
+      placeholder="Password"
+    />
+    <small
+    *ngIf="loginForm.get('pass')?.hasError('required') && loginForm.get('pass')?.dirty"
+    class="text-danger"
+  >
+    *Password is required
+  </small>
+  <small
+    *ngIf="loginForm.get('pass')?.hasError('minlength') && loginForm.get('pass')?.dirty"
+    class="text-danger"
+  >
+    *Password must be at least 8 characters long
+  </small>
+
+    <button
+      [disabled]="loginForm.invalid"
+      class="btn btn-primary btn-block btn-lg btn-signin"
+      (click)="Login(Usertype.value, Email.value, PWD.value)"
+    >
+      Sign in
+    </button>
+  </form>
+  <a class="forgot-password" routerLink="/signup">New User ?</a>
+</div>
+

@@ -1,0 +1,75 @@
+<div class="container">
+  <h1>Mark Attendence</h1>
+
+  <a href="#" routerLink="/StaffsDashboard" class="btn btn-primary">Back</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" *ngIf="isDataAvailable">
+    <div class="form-group">
+      <label for="temp">Select Branch</label>
+
+      <select id="temp" [(ngModel)]="selectedBranch"
+      formControlName="temp"
+       class="form-control" (change)="filterStudents($event)">
+        <option value="">All</option>
+        <option value="CSE">CSE</option>
+        <option value="ECE">ECE</option>
+        <option value="EEE">EEE</option>
+        <option value="ME">ME</option>
+        <option value="CE">CE</option>
+      </select>
+
+      <label for="studentId">StudentId</label>
+
+          <ng-multiselect-dropdown formControlName="studentId" id="studentId"
+          [placeholder]="'Select Students'"
+          [(ngModel)]="selectedItems"
+          [settings]="dropdownSettings"
+          [data]="dropdownList"
+          (onSelect)="onItemSelect($event)"
+          >
+          </ng-multiselect-dropdown>
+
+      </div>
+
+
+
+      <div class="form-group">
+          <label for="date">date</label>
+          <input
+              formControlName="date"
+              id="date"
+              type="date"
+              class="form-control" />
+          <div *ngIf="f['date'].touched && f['date'].invalid" class="alert alert-danger">
+              <div *ngIf="f['date'].errors && f['date'].errors['required']">date is required.</div>
+          </div>
+      </div>
+      <div *ngIf="form.get('FromDate')?.hasError('required')" class="error-message">
+         Date is required.
+      </div>
+      <div *ngIf="form.get('FromDate')?.hasError('minDate')" class="error-message">
+         Date cannot be earlier than the current date or not be future date.
+      </div>
+
+      <div class="form-group">
+          <label for="presentStatus">presentStatus</label>
+              <select formControlName="presentStatus"
+              id="presentStatus" class="form-control">
+                <option value="present">present</option>
+                <option value="absent">absent</option>
+              </select>
+          <div *ngIf="f['presentStatus'].touched && f['presentStatus'].invalid" class="alert alert-danger">
+              <div *ngIf="f['presentStatus'].errors && f['presentStatus'].errors['required']">presentStatus is required.</div>
+          </div>
+      </div>
+
+
+
+
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+  </form>
+</div>

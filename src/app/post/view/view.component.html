@@ -1,0 +1,117 @@
+<div class="container">
+  <h1>View User</h1>
+
+  <div class="row">
+    <!-- First Column for Student Details -->
+    <div class="col-md-6">
+      <div>
+        <p><strong>studentId:</strong>
+        {{ post.studentId }}</p>
+      </div>
+
+      <div>
+        <p><strong>Student Name:</strong>
+        {{ post.name }}</p>
+      </div>
+
+      <div>
+        <p><strong>Branch:</strong>
+        {{ post.branch }}</p>
+      </div>
+
+      <div>
+        <p><strong>Gender:</strong>
+        {{ post.gender }}</p>
+      </div>
+
+      <div>
+        <p><strong>Email:</strong>
+        {{ post.email }}</p>
+      </div>
+
+      <div>
+        <strong>Password:</strong>
+        <div class="input-group pass">
+          <input
+            type="{{ showPassword ? 'text' : 'password' }}"
+            class="form-control"
+            [value]="post.password"
+            readonly="readonly"
+          />
+          <span class="input-group-text">
+            <button
+              class="btn btn-link"
+              type="button"
+              (click)="togglePasswordVisibility()"
+            >
+              <i class="bi bi-eye{{ showPassword ? '-slash' : '' }}"></i>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Column for Enrolled Courses -->
+    <div class="col-md-6">
+      <div class="row">
+        <h2>Skill Development Courses</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Course Name</th>
+              <th>Course Branch</th>
+              <th>Course Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of studentwithcourseDetails">
+              <td>{{post.name}}</td>
+              <td>{{ course.courseName }}</td>
+              <td>{{ course.courseBranch }}</td>
+              <td>{{ course.courseDescription }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="row">
+          <h2>Attendence Percentage</h2>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>No. of Workings Days</th>
+                <th>No. of Days Present</th>
+                <th>No. of Days Absent</th>
+                <th>Percentage</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr >
+                <td>{{ attendenceDetails?.workingDays }}</td>
+                <td>{{ attendenceDetails?.presentDays }}</td>
+                <td>{{ attendenceDetails?.absentDays }}</td>
+                <td>{{ attendenceDetails?.percentage }}</td>
+
+              </tr>
+            </tbody>
+          </table>
+
+      </div>
+    </div>
+
+
+  </div>
+
+  <div>
+    <button
+      type="button"
+      style="margin: 5px;"
+      class="btn btn-success btn-signin"
+      [routerLink]="['/calendar/', this.studentId, 'view']"
+    >
+      Check Attendances
+    </button>
+  </div>
+</div>

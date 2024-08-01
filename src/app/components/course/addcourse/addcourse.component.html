@@ -1,0 +1,69 @@
+<div class="container">
+  <h1>Create New Course</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="courseName">Course Name:</label>
+      <input
+        formControlName="courseName"
+        id="courseName"
+        type="text"
+        class="form-control"
+      />
+      <div
+        *ngIf="f['courseName'].touched && f['courseName'].invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="f['courseName'].errors && f['courseName'].errors['required']"
+        >
+          Course Name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <select
+        id="courseBranch"
+        [(ngModel)]="selectedBranch"
+        formControlName="courseBranch"
+        class="form-control"
+      >
+        <option value="">All</option>
+        <option value="CSE">CSE</option>
+        <option value="ECE">ECE</option>
+        <option value="EEE">EEE</option>
+        <option value="ME">ME</option>
+        <option value="CE">CE</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="courseDescription">Course Description:</label>
+      <textarea
+        formControlName="courseDescription"
+        id="courseDescription"
+        class="form-control"
+        rows="4"
+      ></textarea>
+
+      <div
+        *ngIf="f['courseDescription'].touched && f['courseDescription'].invalid"
+        class="alert alert-danger"
+      >
+        <div
+          *ngIf="
+            f['courseDescription'].errors &&
+            f['courseDescription'].errors['required']
+          "
+        >
+          Course Description is required.
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">
+      Create
+    </button>
+  </form>
+</div>

@@ -1,0 +1,42 @@
+<h3 class="text-center my-5 items_title">Leave Info</h3>
+
+<div class="container">
+  <div class="card items_card">
+    <div class="card-body">
+      <table class="table table-striped text-center">
+        <tr>
+          <th>Leave ID</th>
+          <th>Teacher Name</th>
+          <th>From Date</th>
+          <th>To Date</th>
+          <th>Leave Status</th>
+          <th>
+            <button
+              type="button"
+              (click)="addleave()"
+              class="btn action btn-primary"
+            >
+              Add Leave
+            </button>
+          </th>
+        </tr>
+        <tr *ngFor="let Student of Leave">
+          <td>{{ Student.id }}</td>
+          <td>{{ getTeacherName(Student.teacherId) }}</td>
+          <td>{{ Student.fromDate }}</td>
+          <td>{{ Student.toDate }}</td>
+          <td>{{ Student.leaveStatus }}</td>
+          <td>
+            <button
+              type="button"
+              class="btn btn-danger action "
+              (click)="deleteLeave(Student)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

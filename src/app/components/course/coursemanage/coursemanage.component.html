@@ -1,0 +1,32 @@
+<div class="container">
+  <h1>Course Dashboard</h1>
+
+  <a href="#" routerLink="/addcourse" class="btn btn-success">Create New Course</a>
+
+  <table class="table table-striped">
+      <thead>
+            <tr>
+              <th>CourseId</th>
+              <th>Course Name</th>
+              <th>Course Branch</th>
+              <th>CourseDescription</th>
+              <th width="250px">Action</th>
+            </tr>
+      </thead>
+      <tbody>
+            <tr *ngFor="let post of posts">
+              <td>{{ post.courseId}}</td>
+              <td>{{ post.courseName}}</td>
+              <td>{{ post.courseBranch }}</td>
+              <td>{{post.courseDescription}}</td>
+
+              <td>
+                <!-- class="btn action btn-primary" -->
+                <button type="button" style="margin-right: 5px;" (click)="editcourse(post)" class="btn action btn-primary">Edit</button>
+
+                <button type="button" (click)="deletePost(post)" class="btn btn-danger">Delete</button>
+              </td>
+            </tr>
+      </tbody>
+  </table>
+</div>

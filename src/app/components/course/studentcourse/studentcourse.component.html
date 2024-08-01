@@ -1,0 +1,86 @@
+<div class="container">
+  <h1>Assign Courses to Students</h1>
+
+  <a href="#" routerLink="/StaffsDashboard" class="btn btn-primary">Back</a>
+
+  <form [formGroup]="form" (ngSubmit)="submit()" *ngIf="isDataAvailable">
+    <div class="form-group">
+
+
+      <label for="temp">Select Branch</label>
+
+      <select
+        id="temp"
+        [(ngModel)]="selectedBranch"
+        formControlName="temp"
+        class="form-control"
+        (change)="filterStudents($event)"
+      >
+        <option value="">All</option>
+        <option value="CSE">CSE</option>
+        <option value="ECE">ECE</option>
+        <option value="EEE">EEE</option>
+        <option value="ME">ME</option>
+        <option value="CE">CE</option>
+      </select>
+
+
+      <label for="staffID">Assigned Course Id:</label>
+
+      <div class="form-group">
+        <ng-multiselect-dropdown
+          formControlName="courseId"
+          id="courseId"
+          [placeholder]="'Select Courses'"
+          [settings]="dropdownSettingsForTeacher"
+          [data]="dropdownListForCourses"
+          (onSelect)="onItemSelect($event)"
+          (onDeSelect)="OnItemDeSelect($event)"
+          (onSelectAll)="OnAllItemsSelected($event)"
+          (onDeSelectAll)="OnAllItemsDeSelected()"
+
+        >
+        </ng-multiselect-dropdown>
+      </div>
+
+
+      <label for="studentId">StudentId</label>
+
+      <ng-multiselect-dropdown
+        formControlName="studentId"
+        id="studentId"
+        [placeholder]="'Select Students'"
+        [(ngModel)]="selectedItems"
+        [settings]="dropdownSettings"
+        [data]="dropdownList"
+      >
+      </ng-multiselect-dropdown>
+    </div>
+
+    <button class="btn btn-primary" type="submit">
+      Submit
+    </button>
+  </form>
+</div>
+
+<div>
+  <h2>Enrolled Courses</h2>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Student Name</th>
+              <th>Course Name</th>
+              <th>Course Branch</th>
+              <!-- <th></th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let course of courseList; let i = index" >
+              <td>{{ course.studentName }}</td>
+              <td><p *ngFor="let co of course.studentCourses">{{ co }}</p></td>
+              <td>{{ course.courseBranch }}</td>
+              <!-- <th><button class="btn-danger" (click)="deleteStudentCourses(course)">Delete</button></th> -->
+            </tr>
+          </tbody>
+        </table>
+</div>
