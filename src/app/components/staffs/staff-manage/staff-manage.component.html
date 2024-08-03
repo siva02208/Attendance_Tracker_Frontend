@@ -23,7 +23,7 @@
           <td>
             <div class="form-group">
               <ng-multiselect-dropdown
-                [formControlName]="'courseId'"
+                [formControlName]="'courseId' + Staff.staffId"
                 [placeholder]="'Select Courses'"
                 [(ngModel)]="selectedItems"
                 [settings]="dropdownSettings"
